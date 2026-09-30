@@ -1,0 +1,20 @@
+
+/* ---- Skill chips with brand icons & colors ---- */
+.skills{gap:30px 26px}
+.chips{gap:10px}
+.skill-group .chip.skill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px 8px 11px;color:var(--text);font-weight:600;
+  border:1.5px solid color-mix(in srgb,var(--ic) 50%,transparent);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--ic) 20%,var(--card)),color-mix(in srgb,var(--ic) 6%,var(--card)));
+  transition:transform .25s,box-shadow .25s,border-color .25s,background .25s}
+.skill .sk-ico{width:22px;height:22px;flex:none;fill:var(--ic);filter:drop-shadow(0 0 6px color-mix(in srgb,var(--ic) 60%,transparent));transition:transform .3s}
+.skill .sk-ico.stroke{fill:none;stroke:var(--ic)}
+.skill-group .chip.skill:hover{color:var(--text);border-color:var(--ic);transform:translateY(-4px);box-shadow:0 12px 28px -10px var(--ic),0 0 0 1px var(--ic)}
+.skill:hover .sk-ico{transform:scale(1.2) rotate(-6deg)}
+.skill-group .chip.skill.active{background:var(--ic);border-color:var(--ic);color:#0a0620;box-shadow:0 10px 30px -6px var(--ic);transform:translateY(-3px)}
+.skill.active .sk-ico{fill:#0a0620;filter:none}
+.skill.active .sk-ico.stroke{fill:none;stroke:#0a0620}
+:root[data-theme=light] .skill .sk-ico{fill:color-mix(in srgb,var(--ic) 70%,#000)}
+:root[data-theme=light] .skill .sk-ico.stroke{fill:none;stroke:color-mix(in srgb,var(--ic) 70%,#000)}
+:root[data-theme=light] .skill.active{color:#fff}
+:root[data-theme=light] .skill.active .sk-ico{fill:#fff}
+:root[data-theme=light] .skill.active .sk-ico.stroke{fill:none;stroke:#fff}

@@ -1,0 +1,8 @@
+import re,sys
+p=sys.argv[1]+'/App.tsx'; s=open(p).read()
+s=re.sub(r"  // cursor glow\n  useEffect\(\(\) => \{.*?\n  \}, \[\]\)\n\n?",'',s,flags=re.S)
+s=s.replace('      <div id="glow" aria-hidden="true" />\n','      <Cursor />\n')
+if "import Cursor" not in s:
+    s=s.replace("import Nav from './components/Nav'","import Nav from './components/Nav'\nimport Cursor from './components/Cursor'")
+open(p,'w').write(s)
+print('glow' in s, 'Cursor' in s)

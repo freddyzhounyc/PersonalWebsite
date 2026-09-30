@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Nav from './components/Nav'
+import Cursor from './components/Cursor'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
 import About from './components/About'
@@ -36,7 +37,7 @@ function Site() {
   const toast = useToast()
   const { theme, toggle } = useTheme()
   const active = useScrollSpy(sectionIds)
-  const { pct, y } = useScrollProgress()
+  const { y } = useScrollProgress()
   const [palette, setPalette] = useState(false)
   const [tab, setTab] = useState(0)
   const [skill, setSkill] = useState<string | null>(null)
@@ -78,21 +79,11 @@ function Site() {
     return () => removeEventListener('keydown', on)
   }, [toast])
 
-  // cursor glow
-  useEffect(() => {
-    if (prefersReducedMotion() || !matchMedia('(hover:hover)').matches) return
-    const glow = document.getElementById('glow')
-    const on = (e: MouseEvent) => { if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px' } }
-    addEventListener('mousemove', on, { passive: true })
-    return () => removeEventListener('mousemove', on)
-  }, [])
-
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <div id="progress" style={{ width: `${pct}%` }} aria-hidden="true" />
-      <div id="glow" aria-hidden="true" />
-      <Nav scrolled={y > 10} active={active} theme={theme} onToggleTheme={toggleTheme} onOpenPalette={() => setPalette(true)} />
+      <Cursor />
+      <Nav scrolled={y > 10} active={active} theme={theme} onToggleTheme={toggleTheme} />
       <main id="main">
         <Hero />
         <Stats />

@@ -1,0 +1,21 @@
+
+/* ---- Custom fun cursor ---- */
+.cursor-layer{position:fixed;inset:0;pointer-events:none;z-index:9999;display:none}
+html.has-cursor .cursor-layer{display:block}
+html.has-cursor,html.has-cursor *{cursor:none!important}
+html.has-cursor.cursor-text input,html.has-cursor.cursor-text textarea{cursor:text!important}
+.cursor-trail{position:absolute;inset:0}
+.cursor-dot,.cursor-ring{position:absolute;left:0;top:0;opacity:0;transition:opacity .25s;will-change:transform}
+html.cursor-on .cursor-dot,html.cursor-on .cursor-ring{opacity:1}
+html.cursor-text .cursor-dot,html.cursor-text .cursor-ring{opacity:0}
+.cursor-dot{width:12px;height:12px;border-radius:50%;background:var(--grad);box-shadow:0 0 14px 2px rgba(244,114,182,.8),0 0 28px 6px rgba(139,92,246,.45);
+  transition:opacity .25s,width .2s,height .2s,background .2s}
+.cursor-dot.hover{width:8px;height:8px;background:#fff;box-shadow:0 0 16px 3px rgba(34,211,238,.9)}
+.cursor-dot.down{width:18px;height:18px}
+.cursor-ring{width:38px;height:38px;border-radius:50%;border:2px solid transparent;
+  background:linear-gradient(transparent,transparent) padding-box,conic-gradient(from 0deg,#a78bfa,#f472b6,#fb923c,#22d3ee,#a78bfa) border-box;
+  -webkit-mask:none;transition:opacity .25s,width .25s cubic-bezier(.2,.9,.3,1.4),height .25s cubic-bezier(.2,.9,.3,1.4),filter .25s}
+.cursor-ring.hover{width:58px;height:58px;filter:drop-shadow(0 0 10px rgba(34,211,238,.8)) hue-rotate(40deg)}
+.cursor-ring.down{width:26px;height:26px}
+:root[data-theme=light] .cursor-dot{box-shadow:0 0 12px 2px rgba(219,39,119,.5)}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-layer{display:none!important}}

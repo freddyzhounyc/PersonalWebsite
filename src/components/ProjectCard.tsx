@@ -32,6 +32,7 @@ export default function ProjectCard({ p, highlight, index }: { p: Project; highl
       <article
         ref={(el) => { cardRef.current = el; (viewRef as React.MutableRefObject<HTMLElement | null>).current = el }}
         className={'card' + (seen ? ' in' : '')}
+        style={{ ['--c' as string]: p.color }}
         onMouseMove={move}
         onMouseLeave={leave}
       >

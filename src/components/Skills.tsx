@@ -1,10 +1,22 @@
+import type { CSSProperties } from 'react'
 import Reveal from './Reveal'
 import { experience, projects, skillGroups } from '../data'
+import { skillIcons } from '../skillIcons'
 
 interface Props {
   selected: string | null
   onSelect: (s: string | null) => void
   goExperience: (i: number) => void
+}
+
+function SkillIconSvg({ name }: { name: string }) {
+  const icon = skillIcons[name]
+  if (!icon) return null
+  return icon.stroke ? (
+    <svg className="sk-ico stroke" viewBox="0 0 24 24" aria-hidden="true" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={icon.path} /></svg>
+  ) : (
+    <svg className="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d={icon.path} /></svg>
+  )
 }
 
 export default function Skills({ selected, onSelect, goExperience }: Props) {
@@ -22,14 +34,23 @@ export default function Skills({ selected, onSelect, goExperience }: Props) {
               <h3>{g.title}</h3>
               <div className="chips">
                 {g.skills.map((s) => (
-                  <button key={s} className={'chip' + (s === selected ? ' active' : '')} aria-pressed={s === selected} onClick={() => onSelect(s === selected ? null : s)}>{s}</button>
+                  <button
+                    key={s}
+                    className={'chip skill' + (s === selected ? ' active' : '')}
+                    style={{ ['--ic' as string]: skillIcons[s]?.color } as CSSProperties}
+                    aria-pressed={s === selected}
+                    onClick={() => onSelect(s === selected ? null : s)}
+                  >
+                    <SkillIconSvg name={s} />
+                    <span>{s}</span>
+                  </button>
                 ))}
               </div>
             </Reveal>
           ))}
           <Reveal className="skill-group" delay={3}>
             <h3>Certifications</h3>
-            <div className="chips"><span className="chip static">AWS Certified Cloud Practitioner <em>· in progress</em></span></div>
+            <div className="chips"><span className="chip static">☁️ AWS Certified Cloud Practitioner <em>· in progress</em></span></div>
           </Reveal>
         </div>
         <div className="skill-result" aria-live="polite">

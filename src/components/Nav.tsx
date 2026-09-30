@@ -7,10 +7,9 @@ interface Props {
   active: string
   theme: Theme
   onToggleTheme: () => void
-  onOpenPalette: () => void
 }
 
-export default function Nav({ scrolled, active, theme, onToggleTheme, onOpenPalette }: Props) {
+export default function Nav({ scrolled, active, theme, onToggleTheme }: Props) {
   const [open, setOpen] = useState(false)
   return (
     <header className={'nav' + (scrolled ? ' scrolled' : '')}>
@@ -27,9 +26,6 @@ export default function Nav({ scrolled, active, theme, onToggleTheme, onOpenPale
         </ul>
       </nav>
       <div className="nav-actions">
-        <button className="kbd-btn" onClick={onOpenPalette} aria-label="Open command menu">
-          <span>Quick nav</span><kbd>⌘K</kbd>
-        </button>
         <button className="icon-btn" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} title="Toggle theme">
           {theme === 'dark' ? (
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>

@@ -71,6 +71,7 @@ export interface Project {
   tags: string[]
   filters: string[]
   icon: 'music' | 'book' | 'pulse'
+  color: string
   latency?: { before: number; after: number }
 }
 
@@ -88,6 +89,7 @@ export const projects: Project[] = [
     tags: ['JavaScript', 'React.js', 'Node.js', 'Express.js', 'PostgreSQL'],
     filters: ['React', 'JavaScript', 'PostgreSQL'],
     icon: 'music',
+    color: '#f472b6',
   },
   {
     title: 'Library REST API',
@@ -102,6 +104,7 @@ export const projects: Project[] = [
     tags: ['Java', 'Spring Boot', 'PostgreSQL'],
     filters: ['Java', 'Spring Boot', 'PostgreSQL'],
     icon: 'book',
+    color: '#22d3ee',
     latency: { before: 44, after: 5 },
   },
   {
@@ -117,6 +120,7 @@ export const projects: Project[] = [
     tags: ['React.js', 'Spring Boot', 'Docker', 'GitHub Actions'],
     filters: ['React', 'Spring Boot', 'Java'],
     icon: 'pulse',
+    color: '#a3e635',
   },
 ]
 
