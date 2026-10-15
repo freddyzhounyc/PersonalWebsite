@@ -12,7 +12,7 @@ const icons: Record<Project['icon'], JSX.Element> = {
   pulse: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
 }
 
-export default function ProjectCard({ p, highlight, index }: { p: Project; highlight: string | null; index: number }) {
+export default function ProjectCard({ p, index }: { p: Project; index: number }) {
   const cardRef = useRef<HTMLElement | null>(null)
   const [viewRef, seen] = useInView<HTMLElement>(0.3)
   const tilt = !prefersReducedMotion()
@@ -21,8 +21,6 @@ export default function ProjectCard({ p, highlight, index }: { p: Project; highl
     const c = cardRef.current
     if (!c || !tilt) return
     const r = c.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top
-    c.style.setProperty('--mx', x + 'px')
-    c.style.setProperty('--my', y + 'px')
     c.style.transform = `perspective(900px) rotateX(${(y / r.height - 0.5) * -6}deg) rotateY(${(x / r.width - 0.5) * 6}deg) translateY(-4px)`
   }
   const leave = () => { if (cardRef.current) cardRef.current.style.transform = '' }
@@ -51,7 +49,7 @@ export default function ProjectCard({ p, highlight, index }: { p: Project; highl
             <div><small>After</small><i className="good" style={{ ['--w' as string]: `${(p.latency.after / p.latency.before) * 100}%` }} /><span>{p.latency.after}ms</span></div>
           </div>
         )}
-        <Tags tags={p.tags} highlight={highlight} />
+        <Tags tags={p.tags} />
       </article>
     </Reveal>
   )

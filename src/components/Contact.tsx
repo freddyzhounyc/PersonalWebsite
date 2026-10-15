@@ -34,9 +34,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section alt">
+    <section id="contact" className="section">
       <div className="wrap contact">
-        <Reveal as="h2" className="sec-title"><span>06</span> Let's talk</Reveal>
+        <Reveal as="h2" className="sec-title"><span>07</span> Let's talk</Reveal>
         <Reveal as="p" className="lead">I'm looking for Summer 2027 software engineering internships. If you're building something interesting, I'd love to hear about it.</Reveal>
         <div className="contact-grid">
           <Reveal as="form" onSubmit={submit} noValidate>

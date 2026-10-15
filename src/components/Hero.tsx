@@ -23,8 +23,7 @@ export default function Hero() {
             I build <span style={{ color: 'var(--accent)' }}>{typed}</span><span className="caret">|</span>
           </Reveal>
           <Reveal as="p" delay={3} className="lead">
-            Computer Science student at Stony Brook University and full stack software engineer. I ship telehealth
-            software at a startup, teach object-oriented programming, and sharpen algorithms with a Google engineer.
+            Computer Science student and undergraduate researcher at Stony Brook University, and a full stack (MERN) software engineer. I ship telehealth software at a startup, train frontier AI models, and teach data structures &amp; algorithms.
           </Reveal>
           <Reveal className="cta" delay={4}>
             <a className="btn primary" href="#projects">View my work <span aria-hidden="true">→</span></a>

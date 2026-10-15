@@ -8,6 +8,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Education from './components/Education'
+import Honors from './components/Honors'
 import Contact from './components/Contact'
 import CommandPalette, { type Command } from './components/CommandPalette'
 import { ToastProvider, useToast } from './hooks/useToast'
@@ -40,12 +41,10 @@ function Site() {
   const { y } = useScrollProgress()
   const [palette, setPalette] = useState(false)
   const [tab, setTab] = useState(0)
-  const [skill, setSkill] = useState<string | null>(null)
 
   const goto = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
   }, [])
-  const goExperience = useCallback((i: number) => { setTab(i); goto('experience') }, [goto])
 
   const toggleTheme = useCallback(() => {
     toggle()
@@ -88,10 +87,11 @@ function Site() {
         <Hero />
         <Stats />
         <About />
-        <Experience index={tab} onSelect={setTab} highlight={skill} />
-        <Projects highlight={skill} />
-        <Skills selected={skill} onSelect={setSkill} goExperience={goExperience} />
+        <Experience index={tab} onSelect={setTab} />
+        <Projects />
+        <Skills />
         <Education />
+        <Honors />
         <Contact />
       </main>
       <footer className="footer">

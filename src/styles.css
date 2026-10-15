@@ -416,3 +416,133 @@ html.cursor-text .cursor-arrow{opacity:0}
 .cursor-arrow.hover svg{transform:scale(1.22);filter:drop-shadow(0 1px 3px rgba(0,0,0,.55)) drop-shadow(0 0 12px rgba(34,211,238,.85))}
 .cursor-arrow.down svg{transform:scale(.88)}
 @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-layer{display:none!important}}
+
+/* ---- LinkedIn additions ---- */
+.edu.hs{grid-column:1/-1;background:linear-gradient(160deg,rgba(34,211,238,.10),var(--card) 55%);border-color:rgba(34,211,238,.35)}
+.hs-crest{background:linear-gradient(135deg,#22d3ee,#a78bfa);font-size:.85rem;box-shadow:0 8px 26px -6px rgba(34,211,238,.7)}
+.award:nth-of-type(4) b{color:var(--lime)}.award:nth-of-type(5) b{color:var(--orange)}
+.award:nth-of-type(2) b{color:var(--pink)}.award:nth-of-type(3) b{color:var(--accent2)}
+@media (max-width:900px){.edu.hs{grid-column:auto}}
+
+/* ---- Smoother stat card hover ---- */
+.stat.reveal{transition:opacity .7s ease var(--d,0s),transform .7s cubic-bezier(.22,.8,.3,1) var(--d,0s),box-shadow .7s ease,filter .7s ease}
+.stat.reveal.in{transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.3,1),box-shadow .7s cubic-bezier(.22,.8,.3,1),filter .7s ease}
+.stat.reveal.in:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 18px 50px -14px var(--s1)}
+.stat::before{transition:opacity .7s ease,transform .9s cubic-bezier(.22,.8,.3,1)}
+.stat:hover::before{opacity:.42;transform:scale(1.15)}
+.stat b{transition:filter .7s ease}
+.stat:hover b{filter:drop-shadow(0 0 14px var(--s1))}
+
+/* ---- School logos ---- */
+.school-logo{width:80px;height:80px;flex:none;object-fit:contain;border-radius:50%;filter:drop-shadow(0 6px 16px rgba(244,114,182,.45));transition:transform .5s cubic-bezier(.22,.8,.3,1),filter .5s ease}
+.edu:hover .school-logo{transform:scale(1.08) rotate(-4deg);filter:drop-shadow(0 8px 22px rgba(167,139,250,.75))}
+
+/* ---- Equal education cards + Honors section ---- */
+.edu-grid{grid-template-columns:1fr 1fr;align-items:stretch}
+.edu.hs{grid-column:auto}
+@media (max-width:900px){.edu-grid{grid-template-columns:1fr}}
+.honor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:30px}
+.honor-grid>.reveal{display:flex}
+.honor{--h:#a78bfa;flex:1;position:relative;overflow:hidden;padding:28px 24px;border-radius:var(--r);text-align:center;
+  border:1.5px solid color-mix(in srgb,var(--h) 40%,var(--line));
+  background:linear-gradient(165deg,color-mix(in srgb,var(--h) 16%,var(--card)),var(--card) 60%);
+  transition:transform .6s cubic-bezier(.22,.8,.3,1),box-shadow .6s ease,border-color .6s ease}
+.honor::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--h)}
+.honor:hover{transform:translateY(-6px);border-color:var(--h);box-shadow:0 20px 50px -18px var(--h)}
+.honor-icon{display:inline-grid;place-items:center;width:64px;height:64px;font-size:2rem;border-radius:50%;margin-bottom:14px;
+  background:color-mix(in srgb,var(--h) 18%,transparent);box-shadow:0 0 28px -4px var(--h);transition:transform .6s cubic-bezier(.22,.8,.3,1)}
+.honor:hover .honor-icon{transform:scale(1.12) rotate(-6deg)}
+.honor h3{font-size:1.08rem;line-height:1.35;color:var(--h);margin-bottom:6px}
+.honor p{color:var(--muted);font-size:.9rem}
+.honor-grid{display:flex;flex-wrap:wrap;justify-content:center}
+.honor-grid>.reveal{flex:1 1 200px;max-width:260px}
+@media (max-width:600px){.honor-grid>.reveal{max-width:none;flex-basis:100%}}
+
+/* ---- Education cards stacked vertically ---- */
+.edu-grid{display:flex;flex-direction:column;gap:22px}
+.edu-grid>.edu{width:100%}
+
+/* AWS certification chip shares the skill hover animation */
+.skill-group .chip.skill.static{cursor:default}
+.skill-group .chip.skill.static:hover{transform:translateY(-4px);color:var(--text)}
+.skill.static em{font-style:normal;opacity:.7;font-weight:500}
+
+/* Grade ring fills from empty: gradient stops scale with --p */
+.gpa-ring{background:conic-gradient(from 0deg,#a78bfa,#f472b6 calc(var(--p)*.4%),#fb923c calc(var(--p)*1%),var(--line) 0)}
+.gpa-ring b{font-variant-numeric:tabular-nums}
+
+/* ---- About photo ---- */
+.about-grid.has-photo{grid-template-columns:340px 1fr;grid-template-areas:'photo text' 'photo cards';gap:34px 48px;align-items:start}
+.about-photo{grid-area:photo;position:sticky;top:96px}
+.about-grid.has-photo .about-text{grid-area:text}
+.about-grid.has-photo .about-cards{grid-area:cards;grid-template-columns:repeat(2,1fr)}
+.photo-frame{position:relative;margin:0;padding:5px;border-radius:26px;background:linear-gradient(140deg,#a78bfa,#f472b6 45%,#fb923c 75%,#22d3ee);
+  box-shadow:0 24px 60px -20px rgba(244,114,182,.6),0 0 70px -24px rgba(139,92,246,.7);transition:transform .7s cubic-bezier(.22,.8,.3,1),box-shadow .7s ease}
+.photo-frame img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:22px}
+.photo-frame figcaption{position:absolute;left:18px;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;font-size:.88rem;font-weight:600;color:#fff;
+  background:rgba(8,5,30,.62);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16)}
+.about-photo:hover .photo-frame{transform:translateY(-6px) rotate(-1.2deg);box-shadow:0 34px 80px -20px rgba(244,114,182,.85),0 0 90px -20px rgba(139,92,246,.9)}
+@media (max-width:900px){
+  .about-grid.has-photo{grid-template-columns:1fr;grid-template-areas:'photo' 'text' 'cards'}
+  .about-photo{position:static;max-width:340px;margin-inline:auto}
+}
+@media (max-width:520px){.about-grid.has-photo .about-cards{grid-template-columns:1fr}}
+
+/* Photo frame: thinner border, site colors only (violet → pink → orange) */
+.photo-frame{padding:3px;background:linear-gradient(140deg,#a78bfa,#f472b6 55%,#fb923c)}
+.photo-frame img{border-radius:23px}
+
+/* Experience card hover — same lift/glow/tilt as project cards */
+.exp-panels{transition:transform .15s ease,box-shadow .3s ease;will-change:transform;transform-style:preserve-3d}
+.exp-panels:hover{box-shadow:0 22px 60px -20px #f472b6,0 0 0 1px #f472b6}
+
+/* Project cards: no cursor spotlight */
+.card::after{display:none}
+
+/* Cursor: pointing hand over clickable elements */
+.cursor-arrow svg{margin:0;transform-origin:0 0}
+.cursor-arrow .cur-arrow{margin:-2.5px 0 0 -4.5px;transform-origin:4.5px 2.5px}
+.cursor-arrow .cur-hand{display:none;margin:-1.9px 0 0 -11.4px;transform-origin:11.4px 1.9px}
+.cursor-arrow.hover .cur-arrow{display:none}
+.cursor-arrow.hover .cur-hand{display:block;transform:none;animation:hand-pop .28s cubic-bezier(.2,.9,.3,1.4)}
+.cursor-arrow.hover.down .cur-hand{transform:scale(.9)}
+@keyframes hand-pop{from{transform:scale(.7) rotate(-8deg)}to{transform:none}}
+
+/* Hand cursor glow matches the arrow's pink glow */
+.cursor-arrow.hover svg{filter:drop-shadow(0 1px 3px rgba(0,0,0,.55)) drop-shadow(0 0 8px rgba(244,114,182,.55))}
+
+/* Education cards: same hover as project / experience cards */
+.edu{--c:#a78bfa;will-change:transform;transform-style:preserve-3d}
+.edu.hs{--c:#22d3ee}
+.edu.reveal.in{transition:transform .15s ease,box-shadow .3s ease,border-color .3s ease,opacity .7s ease}
+.edu:hover{border-color:var(--c);box-shadow:0 22px 60px -20px var(--c),0 0 0 1px var(--c)}
+
+/* Education cards side by side (flex row) */
+.edu-grid{display:flex;flex-direction:column;align-items:stretch;gap:22px}
+.edu-grid>.edu{width:100%;flex:none}
+
+/* ---- Company logos in Experience ---- */
+.exp-logos{display:flex;align-items:center;gap:6px;flex:none}
+.logo-tile{--h:34px;display:flex;align-items:center;justify-content:center;height:var(--h);padding:0 6px;border-radius:9px;background:#fff;overflow:hidden;box-shadow:0 4px 14px -4px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.22,.8,.3,1)}
+.logo-tile img{display:block;height:calc(var(--h) - 10px);width:auto;max-width:90px;object-fit:contain}
+.logo-tile.bleed{padding:0;width:var(--h)}
+.logo-tile.bleed img{width:100%;height:100%;max-width:none;object-fit:cover}
+.exp-tabs button{display:flex;align-items:center;gap:12px}
+.exp-tabs button .logo-tile{--h:30px;padding:0 5px}
+.exp-tabs button .logo-tile img{max-width:60px}
+.tab-text{display:block;min-width:0}
+.exp-tabs button:hover .logo-tile,.exp-tabs button.active .logo-tile{transform:scale(1.08)}
+.panel-head{display:flex;align-items:center;gap:18px}
+.panel-head .logo-tile{--h:56px;padding:0 10px;border-radius:14px}
+.panel-head .logo-tile img{height:calc(var(--h) - 16px);max-width:150px}
+.panel-head .logo-tile.bleed img{height:100%}
+@media (max-width:600px){.panel-head{flex-direction:column;align-items:flex-start}}
+
+/* tab logos: fixed slot so text aligns; multi-logo roles show first logo in tabs */
+.exp-tabs button .exp-logos{width:46px;justify-content:flex-start}
+.exp-tabs button .logo-tile:nth-child(n+2){display:none}
+.exp-tabs button .logo-tile:not(.bleed) img{max-width:36px}
+
+/* full-bleed logos: no side padding so the image fills the tile */
+.exp-logos .logo-tile.bleed,.exp-tabs button .logo-tile.bleed,.panel-head .logo-tile.bleed{padding:0;width:var(--h)}
+.exp-logos .logo-tile.bleed img,.exp-tabs button .logo-tile.bleed img,.panel-head .logo-tile.bleed img{width:100%;height:100%;max-width:none;object-fit:cover}

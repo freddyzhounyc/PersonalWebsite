@@ -5,6 +5,8 @@ export const RESUME = 'Freddy_Zhou_TechnicalResume_SUM2027.pdf'
 
 export interface Experience {
   company: string
+  short?: string // label for the tab
+  logos?: { src: string; alt: string; bleed?: boolean }[]
   role: string
   meta: string
   range: string
@@ -15,7 +17,19 @@ export interface Experience {
 // Text wrapped in **double asterisks** is rendered as a highlight.
 export const experience: Experience[] = [
   {
+    company: 'Complication',
+    logos: [{ src: 'logos/complication.png', alt: 'Complication logo', bleed: true }],
+    role: 'Software Engineering Intern',
+    meta: 'Startup · New York, NY',
+    range: 'Sep 2026 – Present',
+    bullets: [
+      'Helping get the ground running for a fast-growing **data infrastructure and analytics** startup as an early software engineering intern.',
+    ],
+    tags: ['Software Engineering', 'Data Infrastructure', 'Analytics', 'Startups'],
+  },
+  {
     company: 'StayHome Healthcare',
+    logos: [{ src: 'logos/stayhome.png', alt: 'StayHome Healthcare logo', bleed: true }],
     role: 'Software Engineer',
     meta: 'Startup · New York, NY',
     range: 'May 2026 – Present',
@@ -28,37 +42,29 @@ export const experience: Experience[] = [
   },
   {
     company: 'Handshake AI',
+    logos: [{ src: 'logos/handshake.png', alt: 'Handshake logo', bleed: true }],
     role: 'Software Engineering AI Trainer',
     meta: 'Remote · New York, NY',
     range: 'Jun 2026 – Present',
     bullets: [
-      'Evaluated and scored multi-turn code completions from frontier large language models across frontend and backend development, API integration, algorithm design, and debugging.',
-      'Increased tasks added to the production data pipeline by achieving a **10% quality score increase** and **30% approval rate increase** through a systematic approach to writing intricate technical rationales.',
-      'Reviewed model-generated completions built with React.js, Next.js, and TypeScript, assessing technical clarity, communication, and response quality.',
+      'Evaluated and scored multi-turn code completions from frontier large language models (LLMs) spanning diverse software engineering domains, including frontend and backend development, API integration, algorithm design, and debugging.',
+      'Increased the number of tasks added to the production data pipeline through a **10% quality score increase** and **30% approval rate increase** by implementing a systematic approach for producing intricate technical rationales.',
+      'Reviewed model-generated completions built with modern web development technologies, including React.js, Next.js, and TypeScript, by assessing technical clarity, technical communication, and response quality.',
     ],
     tags: ['LLM Evaluation', 'React.js', 'Next.js', 'TypeScript', 'Code Review'],
   },
   {
     company: 'Google x Basta',
+    logos: [{ src: 'logos/google.png', alt: 'Google logo', bleed: true }],
     role: 'Fellow',
-    meta: 'New York, NY',
-    range: 'Mar 2026 – Present',
+    meta: 'Fellowship · New York, NY',
+    range: 'Jul 2026 – Sep 2026',
     bullets: [
-      'Solved **15+ new advanced data structures and algorithms problems** in 1:1 weekly calls with a Google Software Engineer mentor, going deep into a variety of technical concepts.',
-      'Reinforced pattern recognition and problem solving through realistic weekly mock interviews with feedback on algorithmic problem solving and time/space complexity analysis.',
+      'Selected as **1 of 200 students from 1,500 applicants** for a 10-week mentorship with a Google Software Engineer focused on data structures, algorithms, and technical interviews.',
+      'Solved **15+ new advanced data structures and algorithms problems** in 1:1 weekly calls, going deep into a variety of technical concepts.',
+      'Reinforced pattern recognition through realistic weekly mock interviews with feedback on algorithmic problem solving and time/space complexity analysis.',
     ],
     tags: ['Algorithms', 'Data Structures', 'Complexity Analysis', 'Mock Interviews'],
-  },
-  {
-    company: 'Stony Brook University',
-    role: 'Object-Oriented Programming Teaching Assistant',
-    meta: 'Stony Brook, NY',
-    range: 'Jan 2026 – May 2026',
-    bullets: [
-      'Facilitated two weekly 90-minute laboratory sessions for **30+ students**, refining course skills through problem sets and hands-on assistance.',
-      'Mentored **20+ students** in weekly 4-hour office hours, strengthening foundational object-oriented proficiency and guiding them through complex programming problems.',
-    ],
-    tags: ['Java', 'OOP', 'Teaching', 'Mentoring'],
   },
 ]
 
@@ -69,7 +75,6 @@ export interface Project {
   blurb: string
   bullets: string[]
   tags: string[]
-  filters: string[]
   icon: 'music' | 'book' | 'pulse'
   color: string
   latency?: { before: number; after: number }
@@ -87,7 +92,6 @@ export const projects: Project[] = [
       'Eliminated prop drilling across **3+ component layers** using React context and hooks.',
     ],
     tags: ['JavaScript', 'React.js', 'Node.js', 'Express.js', 'PostgreSQL'],
-    filters: ['React', 'JavaScript', 'PostgreSQL'],
     icon: 'music',
     color: '#f472b6',
   },
@@ -102,7 +106,6 @@ export const projects: Project[] = [
       'Layered architecture (not a monolith) paves the way for a future move to microservices.',
     ],
     tags: ['Java', 'Spring Boot', 'PostgreSQL'],
-    filters: ['Java', 'Spring Boot', 'PostgreSQL'],
     icon: 'book',
     color: '#22d3ee',
     latency: { before: 44, after: 5 },
@@ -118,13 +121,10 @@ export const projects: Project[] = [
       'GitHub Actions + Docker CI running **20+ integration tests** per pull request.',
     ],
     tags: ['React.js', 'Spring Boot', 'Docker', 'GitHub Actions'],
-    filters: ['React', 'Spring Boot', 'Java'],
     icon: 'pulse',
     color: '#a3e635',
   },
 ]
-
-export const projectFilters = ['All', 'React', 'Spring Boot', 'PostgreSQL', 'Java', 'JavaScript']
 
 export const skillGroups: { title: string; skills: string[] }[] = [
   { title: 'Languages', skills: ['TypeScript', 'JavaScript', 'Java', 'Python', 'C++', 'C', 'HTML', 'CSS', 'OCaml', 'SQL', 'Swift'] },
@@ -148,5 +148,31 @@ export const sections = [
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
+  { id: 'honors', label: 'Honors' },
   { id: 'contact', label: 'Contact' },
 ] as const
+
+export const advancedCoursework = [
+  'AP Calculus BC',
+  'AP Computer Science A',
+  'AP Environmental Science',
+  'AP Microeconomics',
+  'AP Biology',
+  'AP English Language & Composition',
+  'AP United States History',
+  'AP Physics 1',
+  'AP World History: Modern',
+]
+
+export const electives = [
+  'Computer Science Academy · 2021–2024',
+  'Engineering & Robotics Academy · 2020–2021',
+]
+
+export const honors = [
+  { icon: '🏅', title: "Dean's List", sub: '2024 – Present', color: '#fbbf24' },
+  { icon: '🎖️', title: "President's Education Award", sub: 'Outstanding Academic Excellence', color: '#f472b6' },
+  { icon: '📚', title: 'AP Scholar with Honor', sub: 'College Board', color: '#22d3ee' },
+  { icon: '🏛️', title: 'ARISTA National Honor Society', sub: 'High school', color: '#a3e635' },
+  { icon: '🤝', title: 'Google x Basta Fellow', sub: '1 of 200 selected from 1,500 applicants', color: '#fb923c' },
+]

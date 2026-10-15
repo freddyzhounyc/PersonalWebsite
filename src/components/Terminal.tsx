@@ -11,7 +11,7 @@ const segs: Seg[] = [
   ['k', '  "gpa"'], ['', ': '], ['v', '3.94'], ['', ',\n'],
   ['k', '  "graduating"'], ['', ': '], ['v', '"May 2028"\n'], ['c', '}\n\n'],
   ['p', '$ '], ['', 'ls now/\n'],
-  ['v', 'stayhome-healthcare/  handshake-ai/\ngoogle-x-basta/\n\n'],
+  ['v', 'complication/  stayhome-healthcare/\nhandshake-ai/  sbu-research/\n\n'],
   ['p', '$ '], ['', 'echo "let\'s build something"\n'],
   ['v', "let's build something ▊"],
 ]

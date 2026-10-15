@@ -1,0 +1,7 @@
+
+/* ---- LinkedIn additions ---- */
+.edu.hs{grid-column:1/-1;background:linear-gradient(160deg,rgba(34,211,238,.10),var(--card) 55%);border-color:rgba(34,211,238,.35)}
+.hs-crest{background:linear-gradient(135deg,#22d3ee,#a78bfa);font-size:.85rem;box-shadow:0 8px 26px -6px rgba(34,211,238,.7)}
+.award:nth-of-type(4) b{color:var(--lime)}.award:nth-of-type(5) b{color:var(--orange)}
+.award:nth-of-type(2) b{color:var(--pink)}.award:nth-of-type(3) b{color:var(--accent2)}
+@media (max-width:900px){.edu.hs{grid-column:auto}}
