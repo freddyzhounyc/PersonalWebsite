@@ -20,10 +20,11 @@ export default function About() {
             </figure>
           </Reveal>
           <Reveal className="about-text">
-            <p>I'm a Computer Science student at <strong>Stony Brook University</strong> (B.S., expected May 2028) with a 3.94 GPA and a spot on the Dean's List every semester since 2024.</p>
-            <p>Alongside my degree I'm an <strong>Undergraduate Student Researcher</strong> and a <strong>Data Structures &amp; Algorithms Teaching Assistant</strong>, and I'm a full-stack developer who loves the <strong>MERN stack</strong>.</p>
-            <p>My coursework spans systems fundamentals, algorithms, and software development, and I pair it with real-world engineering: I own the full stack of a telehealth platform at <strong>StayHome Healthcare</strong>, evaluate frontier-LLM code at <strong>Handshake AI</strong>, help get a data infrastructure startup (<strong>Complication</strong>) off the ground as an intern, and sharpened my algorithms as a <strong>Google x Basta Fellow</strong>.</p>
-            <p>I care about clean architecture, fast APIs, and interfaces that protect users from mistakes. One day I hope to build software with real impact on millions of people around the world, and to be a positive change in their lives.</p>
+            <p>Hi! My name is Freddy and I am a junior studying <strong>Computer Science @ Stony Brook University</strong>.</p>
+            <p>I'm currently a <strong>Software Engineering Intern @ Complication</strong> and a <strong>Software Engineering AI Trainer @ Handshake AI</strong> working on frontier LLM models for frontier AI labs.</p>
+            <p>My passion for Software Engineering started when I was a kid and was really into video games. After learning that programming was the way that games were created, I started studing Computer Science in high school and throughout university.</p>
+            <p>I fell in love with Software Engineering because the software that I wrote would have the chance at being a positive impact on someone else's life. That feeling is addicting and is what keeps me a Software Engineer.</p>
+            <p>In the future, I hope to be a full time Software Engineer working on solving real world issues at a firm that has global outreach so that my work has real impact.</p>
           </Reveal>
           <Reveal className="about-cards" delay={1}>
             {cards.map(([icon, title, sub]) => (

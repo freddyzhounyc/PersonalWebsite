@@ -18,12 +18,12 @@ export default function Hero() {
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <Reveal as="p" className="eyebrow"><span className="dot" /> Open to Summer 2027 internships</Reveal>
-          <Reveal as="h1" delay={1}>Hi, I'm <span className="grad">Freddy Zhou</span>.</Reveal>
+          <Reveal as="h1" delay={1}>Hi there! I'm <span className="grad">Freddy</span></Reveal>
           <Reveal as="p" delay={2} className="typed">
             I build <span style={{ color: 'var(--accent)' }}>{typed}</span><span className="caret">|</span>
           </Reveal>
           <Reveal as="p" delay={3} className="lead">
-            Computer Science student and undergraduate researcher at Stony Brook University, and a full stack (MERN) software engineer. I ship telehealth software at a startup, train frontier AI models, and teach data structures &amp; algorithms.
+            CS @ Stony Brook University | SWE Intern @ Complication | Undergraduate Student Researcher @ Stony Brook University | Full-Stack Developer | MERN Stack | Google x BASTA Fellow
           </Reveal>
           <Reveal className="cta" delay={4}>
             <a className="btn primary" href="#projects">View my work <span aria-hidden="true">→</span></a>
